@@ -4,7 +4,7 @@ This project analyzes a dataset focused on movie revenue and other factors affec
 
 ## Files
 
-- **Dataset:** [Movie Industry Dataset](./Movie_Industry_Analysis/movie-industry-dataset.csv)
+- **EDA:** [Movie Industry Dataset](https://github.com/Denzel-Witbooi/data-analysis-portfolio/blob/main/Movie%20Correlation%20Project.ipynb)
 
 ## Documentation
 
