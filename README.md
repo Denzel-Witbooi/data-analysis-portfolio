@@ -1,4 +1,9 @@
-# Data analysis portfolio
- 
-## COVID-19 Data Analysis with SQL 
-This project is an SQL data analysis of a COVID-19 dataset from 2021. The dataset contains information related to COVID-19 cases, deaths, and other relevant statistics. The analysis is performed using SQL queries to gain insights and extract meaningful information from the dataset.
+# My Data Analysis Portfolio
+
+Welcome to my data analysis portfolio! This repository contains a collection of data analysis projects that I have worked on. Below is a brief overview of each project:
+
+1. [Nashville Housing Data Cleaning]()
+2. [Covid-19 Data Exploration]()
+3. [Movie Industry Analysis]()
+
+Feel free to explore each project for detailed documentation and insights!
