@@ -43,7 +43,10 @@ where continent is not null
 group by location
 order by total_death_count desc
 
--- Let's break things down by continent
+-- BREAKING THINGS DOWN BY CONTINENT
+
+-- Showing contintents with the highest death count per population
+	
 select continent, MAX(CAST(total_deaths as int)) as total_death_count
 from PortfolioProject..CovidDeaths
 --where location like '%africa%'
@@ -51,7 +54,6 @@ where continent is not null
 group by continent
 order by total_death_count desc
 
--- showing continents with the highest death count per population
 select continent, MAX(CAST(total_deaths as int)) as total_death_count
 from PortfolioProject..CovidDeaths
 --where location like '%africa%'
@@ -59,7 +61,7 @@ where continent is not null
 group by continent
 order by total_death_count desc
 
--- global numbers
+-- GLOBAL NUMBERS
 select date, SUM(new_cases) as total_cases, SUM(CAST(new_deaths as int)) as total_deaths, (SUM(CAST(new_deaths as int))/SUM(new_cases)) * 100 as death_percentage
 from PortfolioProject..CovidDeaths
 --where location like '%africa%'
@@ -67,7 +69,8 @@ where continent is not null
 group by date
 order by 1,2
 
--- looking at total population vs vaccinations
+-- Total Population vs Vaccinations
+-- Shows Percentage of Population that has recieved at least one Covid Vaccine
 select dea.continent, dea.location, dea.date, dea.population, vac.new_vaccinations 
 ,SUM(cast(vac.new_vaccinations as int)) 
 OVER (Partition by dea.location order by dea.location , dea.date) as rollingPeople_vaccinationated 
@@ -79,7 +82,7 @@ where dea.continent is not null
 order by 2, 3
 
 
--- USE CTE
+-- Using CTE to perform Calculation on Partition By in previous query
 With PopvsVac (Continent, Location, Date, Population,New_Vaccinations, rollingPeople_vaccinationated)
 as
 (
@@ -96,7 +99,7 @@ Select * , (rollingPeople_vaccinationated/Population) * 100 as population_vaccin
 From PopvsVac
 
 
--- Temp table
+-- Using Temp Table to perform Calculation on Partition By in previous query
 drop table if exists #PercentPopulationVaccinated
 Create table #PercentPopulationVaccinated
 (
